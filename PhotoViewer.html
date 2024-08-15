@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"> <!-- character encoding -->
+   
+    <!-- For responsive page and proper scaling based on device -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PhotoViewer">
+    <meta name="keywords" content="HTML5, Responsive">
+    <link rel="stylesheet" href="style.css">
+    <link rel="images" href="umcp/college2.jpg">
+    <title>Photo Viewer</title>
+    <script src="code.js" defer></script>
+</head>
+
+
+<body>
+    <h1><u>Photo Viewer</u></h1>
+
+    <div id="images">
+        <img src="InitialImage.jpg" alt="" id="image" onclick = "nextPhoto()"><br>
+    </div>
+
+    <form action="/submit_photo_viewer_form" id="forms">
+      <fieldset><legend><b>Status</b></legend>
+        <label for="photoName">Photo Being Displayed:</label>
+        <input type="text" id="photoName" disabled> <br><br>
+      
+        <div id = "status" class="status">Photo Viewer System</div>
+      </fieldset>
+      <fieldset><legend><b>Loading Images (Local Folder)</b></legend>
+        Photos' Folder: <input type="text" id="folder" value="umcp/">
+        Common Name: <input type="text" id="name" value="college"><br><br>
+        Start Photo Number: <input type="text" id="start" value="2">
+        End Photo Number: <input type="text" id="end" value="4"><br><br>
+      
+        <input type = "button" onclick = "loadPhotos(startNum, endNum, folderName, commonName)" id ="loadPhotosButton" value="Load Photos" class="shadow"><br>
+      </fieldset>
+      <fieldset><legend><b>Loading Images (JSON File)</b></legend>
+        URL: <input type="text" id="jsonURL">
+        
+        <input type="button" onclick = "loadJSON()" id="loadJsonButton" value="Load JSON" class="shadow">
+      </fieldset>
+        <!--Iterating Buttons-->
+      <fieldset><legend><b>Iterating</b></legend>
+        <input type="button" onclick = "previousPhoto()" id="previousButton" value="Previous Photo" class="shadow">
+     
+        <input type="button" onclick = "nextPhoto()" id="nextButton" value="Next Photo" class="shadow">
+        
+        <input type="button" onclick = "firstPhoto()" id="firstButton" value="First Photo" class="shadow">
+       
+        <input type="button" onclick = "lastPhoto()" id="lastButton" value="Last Photo" class="shadow">
+      </fieldset>
+        <!--Slideshow-->
+      <fieldset><legend><b>SlideShows</b></legend>
+        <input type="button" onclick = "startSlideShow()" id="slideShow" value="SlideShow" class="shadow">
+        
+        <input type="button" onclick = "randomSlideShow()" id="randomSlide" value="RandomSlideShow" class="shadow">
+        
+        <input type="button" onclick = "stopSlideShow()" id="stopSlide" value="StopSlideShow" class="shadow">
+      </fieldset>
+        <hr>
+
+        <input type="reset" value="Reset Form Values"><br><br>
+      
+
+    </form>
+
+</body>
+</html>
